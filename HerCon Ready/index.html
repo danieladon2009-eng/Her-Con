@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>HerCon | Herrería Contemporánea</title>
+
+<!-- GOOGLE FONTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- ICONS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+<style>
+
+:root{
+
+  --bg:#f5f2eb;
+  --dark:#070d17;
+  --blue:#204d7d;
+  --text:#2c3440;
+  --card:#ffffffc7;
+  --border:#d9d9d9;
+  --shadow:0 10px 40px rgba(0,0,0,0.06);
+
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Montserrat',sans-serif;
+  background:var(--bg);
+  overflow-x:hidden;
+  color:var(--dark);
+}
+
+/* =======================
+   PARTICLES
+======================= */
+
+canvas{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  opacity:.35;
+}
+
+/* =======================
+   NAVBAR
+======================= */
+
+nav{
+
+  width:100%;
+  position:fixed;
+  top:0;
+  left:0;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:20px 8%;
+
+  background:rgba(255,255,255,.55);
+  backdrop-filter:blur(14px);
+
+  border-bottom:1px solid rgba(255,255,255,.3);
+
+  z-index:999;
+
+}
+
+.logo{
+
+  display:flex;
+  align-items:center;
+  gap:14px;
+
+}
+
+.logo img{
+  width:70px;
+}
+
+.logo-text h1{
+  font-size:1.8rem;
+  font-weight:800;
+  color:var(--dark);
+}
+
+.logo-text p{
+  font-size:.72rem;
+  letter-spacing:1px;
+  color:#5b6470;
+}
+
+nav ul{
+  display:flex;
+  gap:45px;
+  list-style:none;
+}
+
+nav ul a{
+
+  text-decoration:none;
+  color:var(--dark);
+  font-weight:600;
+  position:relative;
+
+}
+
+nav ul a::after{
+
+  content:'';
+  width:0%;
+  height:2px;
+
+  background:var(--blue);
+
+  position:absolute;
+  left:0;
+  bottom:-8px;
+
+  transition:.4s;
+
+}
+
+nav ul a:hover::after{
+  width:100%;
+}
+
+.whatsapp{
+
+  background:var(--blue);
+  color:white;
+
+  padding:15px 25px;
+  border-radius:14px;
+
+  text-decoration:none;
+
+  font-weight:600;
+
+  display:flex;
+  align-items:center;
+  gap:10px;
+
+  transition:.4s;
+  box-shadow:0 8px 20px rgba(32,77,125,.2);
+
+}
+
+.whatsapp:hover{
+  transform:translateY(-4px);
+}
+
+/* =======================
+   HERO
+======================= */
+
+.hero{
+
+  min-height:100vh;
+
+  display:grid;
+  grid-template-columns:1fr 1fr;
+
+  align-items:center;
+
+  padding:120px 8% 80px;
+
+  gap:40px;
+
+}
+
+.hero-left{
+
+  animation:fadeUp 1s ease;
+
+}
+
+.hero-mini{
+
+  color:var(--blue);
+
+  letter-spacing:4px;
+  margin-bottom:20px;
+
+  font-size:.95rem;
+  font-weight:600;
+
+}
+
+.hero h1{
+
+  font-size:5.4rem;
+  line-height:1;
+
+  margin-bottom:25px;
+
+  color:var(--dark);
+
+}
+
+.hero h1 span{
+  color:var(--blue);
+}
+
+.hero-line{
+
+  width:90px;
+  height:4px;
+
+  background:var(--blue);
+
+  border-radius:10px;
+
+  margin-bottom:30px;
+
+}
+
+.hero p{
+
+  max-width:620px;
+
+  line-height:1.9;
+  color:#5e6874;
+
+  margin-bottom:40px;
+
+  font-size:1.08rem;
+
+}
+
+.hero-buttons{
+
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+
+}
+
+.btn{
+
+  padding:18px 32px;
+  border-radius:16px;
+
+  text-decoration:none;
+  font-weight:600;
+
+  transition:.4s;
+
+}
+
+.btn-primary{
+
+  background:var(--blue);
+  color:white;
+
+  box-shadow:0 12px 25px rgba(32,77,125,.22);
+
+}
+
+.btn-primary:hover{
+
+  transform:translateY(-4px);
+
+}
+
+.btn-secondary{
+
+  border:1px solid #cfd4da;
+  color:var(--dark);
+
+  background:white;
+
+}
+
+.btn-secondary:hover{
+
+  background:var(--dark);
+  color:white;
+
+}
+
+.hero-stats{
+
+  margin-top:60px;
+
+  display:flex;
+  gap:45px;
+  flex-wrap:wrap;
+
+}
+
+.stat{
+
+  display:flex;
+  gap:15px;
+  align-items:center;
+
+}
+
+.stat i{
+
+  width:55px;
+  height:55px;
+
+  border-radius:18px;
+
+  background:white;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  color:var(--blue);
+
+  box-shadow:var(--shadow);
+
+  font-size:1.2rem;
+
+}
+
+.stat h4{
+  font-size:1.2rem;
+}
+
+.stat p{
+  margin:0;
+  font-size:.9rem;
+}
+
+/* =======================
+   HERO IMAGE
+======================= */
+
+.hero-right{
+
+  position:relative;
+
+  display:flex;
+  justify-content:center;
+
+}
+
+.hero-image{
+
+  width:100%;
+  max-width:650px;
+
+  border-radius:30px;
+
+  overflow:hidden;
+
+  box-shadow:
+  0 30px 60px rgba(0,0,0,.12);
+
+  position:relative;
+
+}
+
+.hero-image img{
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  display:block;
+
+}
+
+/* =======================
+   SECTIONS
+======================= */
+
+section{
+  padding:120px 8%;
+}
+
+.section-top{
+
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+
+  margin-bottom:60px;
+
+  gap:30px;
+
+}
+
+.section-top small{
+
+  color:var(--blue);
+  letter-spacing:3px;
+  font-weight:700;
+
+}
+
+.section-top h2{
+
+  font-size:3rem;
+  margin-top:10px;
+
+}
+
+.section-top p{
+
+  color:#68727d;
+  max-width:420px;
+  line-height:1.8;
+
+}
+
+/* =======================
+   SERVICES
+======================= */
+
+.services{
+
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+
+  gap:25px;
+
+}
+
+.card{
+
+  background:rgba(255,255,255,.7);
+
+  backdrop-filter:blur(12px);
+
+  border-radius:28px;
+
+  padding:40px 30px;
+
+  border:1px solid rgba(255,255,255,.5);
+
+  box-shadow:var(--shadow);
+
+  transition:.45s;
+
+}
+
+.card:hover{
+
+  transform:translateY(-12px);
+
+}
+
+.card i{
+
+  font-size:2rem;
+  color:var(--blue);
+
+  margin-bottom:25px;
+
+}
+
+.card h3{
+
+  margin-bottom:14px;
+
+}
+
+.card p{
+
+  color:#69737e;
+  line-height:1.8;
+
+}
+
+/* =======================
+   GALLERY
+======================= */
+
+.gallery{
+
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+  gap:22px;
+
+}
+
+.gallery-item{
+
+  overflow:hidden;
+  border-radius:28px;
+
+  position:relative;
+
+  box-shadow:var(--shadow);
+
+}
+
+.gallery-item img{
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  transition:.7s;
+
+  display:block;
+
+}
+
+.gallery-item:hover img{
+
+  transform:scale(1.08);
+
+}
+
+/* =======================
+   CONTACT
+======================= */
+
+.contact{
+
+  display:grid;
+  grid-template-columns:1fr 1fr;
+
+  gap:40px;
+
+}
+
+.contact-box{
+
+  background:white;
+
+  border-radius:32px;
+
+  padding:50px;
+
+  box-shadow:var(--shadow);
+
+}
+
+.contact-box small{
+
+  color:var(--blue);
+  letter-spacing:3px;
+  font-weight:700;
+
+}
+
+.contact-box h2{
+
+  margin:20px 0 35px;
+  font-size:2.5rem;
+
+}
+
+.contact-info{
+
+  display:flex;
+  flex-direction:column;
+  gap:25px;
+
+}
+
+.info{
+
+  display:flex;
+  gap:18px;
+  align-items:flex-start;
+
+}
+
+.info i{
+
+  width:55px;
+  height:55px;
+
+  border-radius:18px;
+
+  background:#edf3fa;
+
+  color:var(--blue);
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  font-size:1.2rem;
+
+}
+
+.info h4{
+  margin-bottom:5px;
+}
+
+.info p{
+  color:#68727d;
+  line-height:1.7;
+}
+
+.contact-image{
+
+  overflow:hidden;
+  border-radius:32px;
+
+  box-shadow:var(--shadow);
+
+}
+
+.contact-image img{
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+}
+
+/* =======================
+   FOOTER
+======================= */
+
+footer{
+
+  margin-top:120px;
+
+  background:var(--dark);
+
+  color:white;
+
+  padding:40px 8%;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  flex-wrap:wrap;
+
+  gap:20px;
+
+}
+
+.footer-social{
+
+  display:flex;
+  gap:20px;
+
+}
+
+.footer-social i{
+
+  width:45px;
+  height:45px;
+
+  border-radius:50%;
+
+  border:1px solid rgba(255,255,255,.1);
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  transition:.4s;
+  cursor:pointer;
+
+}
+
+.footer-social i:hover{
+
+  background:var(--blue);
+  transform:translateY(-4px);
+
+}
+
+/* =======================
+   ANIMATIONS
+======================= */
+
+@keyframes fadeUp{
+
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+
+/* =======================
+   RESPONSIVE
+======================= */
+
+@media(max-width:1100px){
+
+  .hero{
+
+    grid-template-columns:1fr;
+    padding-top:160px;
+
+  }
+
+  .contact{
+
+    grid-template-columns:1fr;
+
+  }
+
+}
+
+@media(max-width:900px){
+
+  nav ul{
+    display:none;
+  }
+
+  .hero h1{
+    font-size:3.7rem;
+  }
+
+  .section-top{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+}
+
+@media(max-width:600px){
+
+  .hero h1{
+    font-size:3rem;
+  }
+
+  .hero-buttons{
+    flex-direction:column;
+  }
+
+  .contact-box{
+    padding:35px;
+  }
+
+  .hero-stats{
+    gap:25px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- PARTICLES -->
+<canvas id="particles"></canvas>
+
+<!-- NAVBAR -->
+
+<nav>
+
+  <div class="logo">
+
+    <img src="images/logo.png">
+
+  </div>
+
+  <ul>
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#proyectos">Proyectos</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+
+  <a class="whatsapp" href="https://wa.me/18299442388">
+    <i class="fa-brands fa-whatsapp"></i>
+    WhatsApp
+  </a>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="inicio">
+
+  <div class="hero-left">
+
+    <div class="hero-mini">
+      HERCON
+    </div>
+
+    <h1>
+      Herrería <br>
+      <span>Contemporánea</span>
+    </h1>
+
+    <div class="hero-line"></div>
+
+    <p>
+
+      Diseñamos y fabricamos puertas, verjas, gazebos
+      y estructuras metálicas modernas con acabados
+      elegantes, resistentes y personalizados.
+
+    </p>
+
+    <div class="hero-buttons">
+
+      <a href="https://wa.me/18299442388" class="btn btn-primary">
+
+        <i class="fa-brands fa-whatsapp"></i>
+        Escríbenos
+
+      </a>
+
+      <a href="#proyectos" class="btn btn-secondary">
+
+        Ver proyectos
+
+      </a>
+
+    </div>
+
+    <div class="hero-stats">
+
+      <div class="stat">
+
+        <i class="fa-solid fa-shield"></i>
+
+        <div>
+          <h4>+10</h4>
+          <p>Años de experiencia</p>
+        </div>
+
+      </div>
+
+      <div class="stat">
+
+        <i class="fa-solid fa-award"></i>
+
+        <div>
+          <h4>100%</h4>
+          <p>Calidad garantizada</p>
+        </div>
+
+      </div>
+
+      <div class="stat">
+
+        <i class="fa-solid fa-pen-ruler"></i>
+
+        <div>
+          <h4>Diseños</h4>
+          <p>Personalizados</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="hero-right">
+
+    <div class="hero-image">
+
+      <img src="images/Puerta-principal.jpg" alt="Puerta moderna">
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section id="servicios">
+
+  <div class="section-top">
+
+    <div>
+
+      <small>SERVICIOS</small>
+
+      <h2>¿Qué hacemos?</h2>
+
+    </div>
+
+    <p>
+
+      Creamos soluciones metálicas modernas,
+      resistentes y elegantes para hogares
+      y negocios.
+
+    </p>
+
+  </div>
+
+  <div class="services">
+
+    <div class="card">
+
+      <i class="fa-solid fa-border-all"></i>
+
+      <h3>Verjas</h3>
+
+      <p>
+        Protectores y diseños modernos para
+        ventanas y hogares.
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <i class="fa-solid fa-door-open"></i>
+
+      <h3>Puertas metálicas</h3>
+
+      <p>
+        Puertas modernas con acabados elegantes
+        y máxima seguridad.
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <i class="fa-solid fa-warehouse"></i>
+
+      <h3>Gazebos</h3>
+
+      <p>
+        Estructuras metálicas para exteriores
+        con diseños contemporáneos.
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <i class="fa-solid fa-wrench"></i>
+
+      <h3>Soldadura</h3>
+
+      <p>
+        Fabricación y reparación de estructuras
+        metálicas personalizadas.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section id="proyectos">
+
+  <div class="section-top">
+
+    <div>
+
+      <small>PROYECTOS</small>
+
+      <h2>Trabajos recientes</h2>
+
+    </div>
+
+    <p>
+
+      Algunos de nuestros proyectos realizados
+      en Haina y zonas cercanas.
+
+    </p>
+
+  </div>
+
+  <div class="gallery">
+
+    <div class="gallery-item">
+      <img src="images/verja-1.jpg">
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/verja-2.PNG">
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/gazebo-1.jpg">
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contacto">
+
+  <div class="contact">
+
+    <div class="contact-box">
+
+      <small>CONTÁCTANOS</small>
+
+      <h2>Estamos para ayudarte</h2>
+
+      <div class="contact-info">
+
+        <div class="info">
+
+          <i class="fa-brands fa-whatsapp"></i>
+
+          <div>
+            <h4>WhatsApp</h4>
+            <p>+1 (829) 944-2388</p>
+          </div>
+
+        </div>
+
+        <div class="info">
+
+          <i class="fa-solid fa-location-dot"></i>
+
+          <div>
+            <h4>Ubicación</h4>
+            <p>Haina, San Cristóbal</p>
+          </div>
+
+        </div>
+
+        <div class="info">
+
+          <i class="fa-solid fa-clock"></i>
+
+          <div>
+            <h4>Horario</h4>
+            <p>Lunes - Sábado | 8:00 AM - 6:00 PM</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="contact-image">
+
+      <img src="images/trabajo-1.jpg"
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div>
+    © 2026 HERCON — Herrería Contemporánea
+  </div>
+
+  <div class="footer-social">
+
+    <i class="fa-brands fa-facebook-f"></i>
+    <i class="fa-brands fa-instagram"></i>
+    <i class="fa-brands fa-whatsapp"></i>
+
+  </div>
+
+</footer>
+
+<!-- PARTICLES SCRIPT -->
+
+<script>
+
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+class Particle{
+
+  constructor(){
+
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+
+    this.size = Math.random() * 2;
+
+    this.speedX = (Math.random() - .5) * .2;
+    this.speedY = (Math.random() - .5) * .2;
+
+  }
+
+  update(){
+
+    this.x += this.speedX;
+    this.y += this.speedY;
+
+    if(this.x > canvas.width) this.x = 0;
+    if(this.x < 0) this.x = canvas.width;
+
+    if(this.y > canvas.height) this.y = 0;
+    if(this.y < 0) this.y = canvas.height;
+
+  }
+
+  draw(){
+
+    ctx.beginPath();
+
+    ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+
+    ctx.fillStyle = 'rgba(32,77,125,.25)';
+
+    ctx.fill();
+
+  }
+
+}
+
+for(let i = 0; i < 120; i++){
+
+  particles.push(new Particle());
+
+}
+
+function animate(){
+
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  particles.forEach(p => {
+
+    p.update();
+    p.draw();
+
+  });
+
+  requestAnimationFrame(animate);
+
+}
+
+animate();
+
+window.addEventListener('resize',()=>{
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+});
+
+</script>
+
+</body>
+</html>
